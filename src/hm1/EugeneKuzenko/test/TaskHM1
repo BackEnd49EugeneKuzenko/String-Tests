@@ -1,0 +1,21 @@
+
+1.	Create new Java project string-tests
+2.	Create new Junit Test Case class StringTests
+2.1.	Leave field “Class Under Test” empty
+3.	Write tests for following String methods (For getting known of the methods consult the Javadoc)
+3.1.	Method charAt
+3.2.	Method compareTo
+3.3.	Method compareToIgnoreCase
+3.4.	Method concat
+3.5.	Method startWith
+3.6.	Method endWith
+3.7.	Method contains
+3.8.	Method indexOf(String string) (There are several methods indexOf, 
+				only the one taking a string as a parameter)
+3.9.	 Method lastIndexOf(int ch) (There are several methods lastIndexOf, 
+				only the one taking a character as a parameter)
+4.	Create local GIT
+4.1.	Commit code to local GIT
+5.	Create GitHub repository 
+5.1.	Push branch from local GIT to the GitHub repository
+6.	Send reference to GitHub repository with the code Vladimir and me
