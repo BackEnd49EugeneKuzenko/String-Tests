@@ -2,6 +2,7 @@ package hm1.EugeneKuzenko.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class StringTests {
@@ -11,6 +12,15 @@ class StringTests {
 	void testCharAt() {
 		assertEquals('S', "Sunrise".charAt(0));
 		assertEquals('i', "Sunrise".charAt(4));
+	}
+
+// *********************  Disabled  ******************   // corrected
+	@Test
+	@Disabled
+	void testCharAt2() {
+		assertEquals('x', "".charAt(0));
+		assertEquals('x', "Java".charAt(-1));
+		assertEquals('x', "Java".charAt(7));
 	}
 
 //2 ********************* myStr1.compareTo(myStr2) **********************	
@@ -36,6 +46,10 @@ class StringTests {
 	void testConcat() {
 		assertEquals("Sunrise", "Sun".concat("rise"));
 		assertEquals("Sun rise", "Sun".concat(" rise"));
+
+//****** corrected  ***************
+		assertEquals("Sunrise", "".concat("Sunrise"));
+		assertEquals("Sunrise", "Sunrise".concat(""));
 	}
 
 //5 ********************* "Hello".startsWith("He") **********************	
@@ -45,6 +59,10 @@ class StringTests {
 		assertTrue("Sunrise".startsWith("Sunrise"));
 		assertFalse("Sunrise".startsWith("un"));
 		assertFalse("Sunrise".startsWith("sunrise"));
+
+//********  corrected  ******************************	
+		assertTrue("Sunrise".startsWith(""));
+
 	}
 
 //6 ********************* "Hello".endsWith("o") **********************	
@@ -53,6 +71,9 @@ class StringTests {
 		assertTrue("Sunrise".endsWith("e"));
 		assertFalse("Sunrise".endsWith("s"));
 		assertFalse("Sunrise".endsWith("sunrise"));
+
+//*********************  corrected  ******************************
+		assertTrue("Sunrise".endsWith(""));
 	}
 
 //7 ********************* "Hello".contains("e") **********************
