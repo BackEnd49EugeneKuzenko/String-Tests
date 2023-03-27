@@ -10,17 +10,10 @@ class StringTests {
 //1 ********************* str.charAt(0) **********************	
 	@Test
 	void testCharAt() {
-		assertEquals('S', "Sunrise".charAt(0));
-		assertEquals('i', "Sunrise".charAt(4));
-	}
-
-// *********************  Disabled  ******************   // corrected
-	@Test
-	@Disabled
-	void testCharAt2() {
-		assertEquals('x', "".charAt(0));
-		assertEquals('x', "Java".charAt(-1));
-		assertEquals('x', "Java".charAt(7));
+		String sunrise = "Sunrise";
+		assertEquals('S', sunrise.charAt(0));
+		assertEquals('r', sunrise.charAt(3));
+		assertEquals('e', sunrise.charAt(6));
 	}
 
 //2 ********************* myStr1.compareTo(myStr2) **********************	
@@ -29,14 +22,25 @@ class StringTests {
 		assertEquals(0, "Sunrise".compareTo("Sunrise"));
 		assertEquals(-1, "Sunris".compareTo("Sunrise"));
 		assertEquals(1, "Sunrise".compareTo("Sunris"));
+
+		assertEquals(2, "1234589".compareTo("12345"));
+		assertEquals(8, "9".compareTo("12345"));
+		assertEquals(-4, "12345".compareTo("12349"));
+		assertEquals(1, "123459".compareTo("12345"));
+		assertEquals('H' - 'h', "Hello".compareTo("hello"));
+		assertTrue("Hello".compareTo("hello") < 0);
 	}
 
 //3 ********************* myStr1.compareToIgnoreCase(myStr2) **********************
 	@Test
 	void testCompareToIgnoreCase() {
+		assertEquals(2, "1234589".compareTo("12345"));
+		assertEquals(8, "9".compareTo("12345"));
+		assertEquals(-4, "12345".compareTo("12349"));
+
 		assertEquals(0, "Sunrise".compareToIgnoreCase("Sunrise"));
 		assertEquals(0, "sunrise".compareToIgnoreCase("Sunrise"));
-		assertEquals(0, "Sunrise".compareToIgnoreCase("sunrise"));
+		assertEquals(0, "Sunrise".compareToIgnoreCase("sunRise"));
 		assertTrue("Sunris".compareToIgnoreCase("Sunrise") < 0);
 		assertFalse("Sunris".compareToIgnoreCase("Sunrise") > 0);
 	}
@@ -44,6 +48,14 @@ class StringTests {
 //4 ********************* firstName.concat(lastName) **********************
 	@Test
 	void testConcat() {
+//********		YG ****
+		String hello = "Hello";
+		String world = " World";
+		String helloWorld = "Hello World";
+		assertEquals(helloWorld, hello.concat(world));
+		assertEquals("Hello World!", helloWorld.concat("!"));
+//********************************		
+
 		assertEquals("Sunrise", "Sun".concat("rise"));
 		assertEquals("Sun rise", "Sun".concat(" rise"));
 
@@ -79,13 +91,14 @@ class StringTests {
 //7 ********************* "Hello".contains("e") **********************
 	@Test
 	void testContains() {
+		assertTrue("Sunrise".contains("Sunrise"));
 		assertTrue("Sunrise".contains("Su"));
 		assertTrue("Sunrise".contains("nri"));
 		assertFalse("Sunrise".contains("uni"));
 		assertFalse("Sunrise".contains("sun"));
 	}
 
-//8 ********************* "Hello".indexOf("e") **********************
+//8 ********************* "Hello".indexOf(String str) **********************
 	@Test
 	void testIndexOf() {
 		assertEquals(0, "Sunrise".indexOf("Sun"));
@@ -96,7 +109,7 @@ class StringTests {
 		assertEquals(-1, "Sun".indexOf("rise"));
 	}
 
-//9 ********************* "Hello".lastIndexOf("l") **********************	
+//9 ********************* "Hello".lastIndexOf(String ch) **********************	
 	@Test
 	void testLastIndexOf() {
 		assertEquals(5, "Sunrise".lastIndexOf("s"));
